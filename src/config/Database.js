@@ -15,7 +15,8 @@ class Database {
             port: process.env.DB_PORT,
             waitForConnections: true,
             connectionLimit: 100,
-            queueLimit: 0
+            queueLimit: 0,
+            ssl: { rejectUnauthorized: false }
         });
     }
 
@@ -60,6 +61,7 @@ export async function initializeDatabase() {
             );
         `);
 
+
         await tempConnection.query(`
             CREATE TABLE IF NOT EXISTS produtos (
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -69,7 +71,7 @@ export async function initializeDatabase() {
                 image VARCHAR(250) NOT NULL,
                 quantidade DECIMAL (18,2) NOT NULL,
                 idCategoria INT NOT NULL,
-                dataCad TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                dataCad TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
             CONSTRAINT FK_produtos_categorias
             FOREIGN KEY (idCategoria) REFERENCES categorias(id)
