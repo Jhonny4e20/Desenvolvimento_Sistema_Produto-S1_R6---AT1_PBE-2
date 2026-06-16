@@ -71,7 +71,7 @@ export async function initializeDatabase() {
                 image VARCHAR(250) NOT NULL,
                 quantidade DECIMAL (18,2) NOT NULL,
                 idCategoria INT NOT NULL,
-                dataCad TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                dataCad TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
             CONSTRAINT FK_produtos_categorias
             FOREIGN KEY (idCategoria) REFERENCES categorias(id)
