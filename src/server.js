@@ -1,8 +1,8 @@
-import express from 'express';
-import routes from './routes/routes.js';
 import dotenv from 'dotenv';
+import express from 'express';
 import cors from 'cors';
-import { initializeDatabase } from './configs/Database.js';
+import routes from './routes/routes.js';
+import { initializeDatabase } from './config/Database.js';
 
 // const cors = require('cors');
 
